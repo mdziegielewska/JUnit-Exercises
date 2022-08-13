@@ -12,6 +12,11 @@ import java.util.HashSet;
 
 public class Fridge {
     private Collection<String> food = new HashSet<String>();
+    public String[] allItems = new String[0];
+
+    public String[] getItems() {
+        return food.toArray(allItems);
+    }
 
     public boolean put(String item) {
         return food.add(item);

@@ -14,7 +14,7 @@ public class FridgeTest {
     static CountItems countItems = new CountItems();
     static String[] food = new String[]{"egg", "milk", "ham"};
 
-
+    @DisplayName("Filling the fridge...")
     @BeforeAll
     public static void setUp() {
         for(String f : food) {
@@ -26,12 +26,14 @@ public class FridgeTest {
         Assertions.assertEquals(3, countItems.countAllItems(fridge));
     }
 
+    @DisplayName("Fridge should contain")
     @ParameterizedTest(name = "Fridge should contain {0}")
     @ValueSource(strings = {"milk", "ham", "egg"})
     public void shouldContain(String item) {
         Assertions.assertTrue(fridge.contains(item), "true");
     }
 
+    @DisplayName("Fridge should not contain")
     @ParameterizedTest(name = "Fridge should not contain {0}")
     @ValueSource(strings = {"cucumber", "salad", "yoghurt"})
     public void shouldNotContain(String item) {
@@ -42,6 +44,7 @@ public class FridgeTest {
         }
     }
 
+    @DisplayName("Fridge should be empty")
     @Test
     public void shouldTakeAllExisingItems() throws NoSuchItemException {
         for(String f : food) {

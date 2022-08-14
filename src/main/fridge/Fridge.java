@@ -5,7 +5,7 @@ import java.util.HashSet;
 
 /**
  * Practical Unit Testing with JUnit and Mockito - source code for exercises.
- * Visit http://practicalunittesting.com for more information.
+ * Visit <a href="http://practicalunittesting.com">...</a> for more information.
  *
  * @author Tomek Kaczanowski
  */

@@ -4,13 +4,13 @@ import java.util.Calendar;
 
 /**
  * Practical Unit Testing with JUnit and Mockito - source code for exercises.
- * Visit http://practicalunittesting.com for more information.
+ * Visit <a href="http://practicalunittesting.com">...</a> for more information.
  *
  * @author Tomek Kaczanowski
  */
 
 public class HelloRedesigned {
-    private TimeProvider timeProvider;
+    private final TimeProvider timeProvider;
 
     public HelloRedesigned(TimeProvider timeProvider) {
         this.timeProvider = timeProvider;
@@ -18,10 +18,14 @@ public class HelloRedesigned {
 
     public String sayHello() {
         Calendar current = timeProvider.getTime();
-        if (current.get(Calendar.HOUR_OF_DAY) < 12) {
+        if (current.get(Calendar.HOUR_OF_DAY) >= 8 && current.get(Calendar.HOUR_OF_DAY) < 12) {
             return "Good Morning!";
-        } else {
+        } else if ((current.get(Calendar.HOUR_OF_DAY) >= 12 && current.get(Calendar.HOUR_OF_DAY) < 18)) {
             return "Good Afternoon!";
+        } else if ((current.get(Calendar.HOUR_OF_DAY) >= 18 && current.get(Calendar.HOUR_OF_DAY) < 22)) {
+            return "Good Evening!";
+        } else {
+            return "Good Night!";
         }
     }
 }
